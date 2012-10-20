@@ -1,0 +1,214 @@
+/*
+basecondition ~ grids.less
+Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
+Creative Commons Attribution 3.0 Unported License
+
+Version: 3.1.1
+
+~ basecondition gird essentials
+~ basecondition gird cores
+~ basecondition gird generation
+~ basecondition segment essentials
+~ basecondition segment cores
+~ basecondition segment generation
+
+*/
+
+// ----------------------------------------------------- ~ basecondition grid essentials
+
+  // ----------------------------------------------------- ~ gs-calculations
+  @gsColumnsWidth               : @gsColumnWidth * @gsNumberOfColumns;
+  @gsGuttersWidth               : @gsGutterWidth * @gsNumberOfColumns;
+  @gsWidth                      : (@gsColumnsWidth + @gsGuttersWidth);
+  @gsCorrection                 : @ie7Correction;
+  
+  // ----------------------------------------------------- ~ gs-utilities
+  .gs-column-fixed () {
+    .gs-gutter-fixed ();
+    .gs-float ();
+  }
+  .gs-column-fluid () {
+    .gs-gutter-fixed ();
+    .gs-gutter-fluid ();
+    .gs-float ();
+  }
+  
+  // ----------------------------------------------------- ~ gs-mixins
+  .gs-width (@columnIndex:1) {
+    width: ((@gsColumnWidth * @columnIndex) + (@gsGutterWidth * (@columnIndex - 1))) * @gsMultiplier;
+  }
+  .gs-gutter-fixed () {
+    margin-left: @gsGutterWidth * @gsMultiplier;
+  }
+  .gs-gutter-fluid () {
+    *margin-left: @gsGutterWidth - @gsCorrection;
+  }
+  .gs-offset (@columnIndex:0) {
+    margin-left: ((@gsColumnWidth * @columnIndex) + (@gsGutterWidth * (@columnIndex + 1))) * @gsMultiplier;
+  }
+  
+  // ----------------------------------------------------- ~ recursive gs-columnX
+  .gs-columnX (@index) when (@index > 0) {
+    (~".col@{index}") {
+      .gs-width (@index);
+    }
+    .gs-columnX (@index - 1);
+  }
+  .gs-columnX (0) {}
+  
+  // ----------------------------------------------------- ~ recursive gs-offsetX
+  .gs-offsetX (@index) when (@index > 0) {
+    (~".offset@{index}") {
+      .gs-offset (@index);
+    }
+    .gs-offsetX (@index - 1);
+  }
+  .gs-offsetX (0) {}
+
+
+
+
+// ----------------------------------------------------- ~ basecondition gird cores
+
+  // ----------------------------------------------------- ~ fixed grid system
+  .fixed-gs-core (@gsNumberOfColumns, @gsColumnWidth, @gsGutterWidth) {
+    margin-left: -@gsGutterWidth * @gsMultiplier;
+    
+    [class*="col"] {
+      .gs-column-fixed ();
+    }
+    .gs-columnX (@gsNumberOfColumns);
+    .gs-offsetX (@gsNumberOfColumns);
+  }
+  
+  // ----------------------------------------------------- ~ fluid gird system
+  .fluid-gs-core (@gsNumberOfColumns, @gsColumnWidth, @gsGutterWidth) {
+    [class*="col"] {
+      .gs-column-fluid ();
+      
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    .gs-columnX (@gsNumberOfColumns);
+    .gs-offsetX (@gsNumberOfColumns);
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition gird generation
+
+  // ----------------------------------------------------- ~ fixed gird systems
+  .get-fixed-gs (@gsNumberOfColumns:12, @gsColumnWidth:60, @gsGutterWidth:20, @gsWrapperClass:grid) {
+    @gsMultiplier : 1px;
+    
+    (~".@{gsWrapperClass}") {
+      .row {
+        .fixed-gs-core (@gsNumberOfColumns, @gsColumnWidth, @gsGutterWidth);
+        .cfx ();
+      }
+      .gs-center ();
+      
+      width: (@gsWidth - @gsGutterWidth) * @gsMultiplier;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ fluid gird systems
+  .get-fluid-gs (@gsNumberOfColumns:12, @gsColumnWidth:6.382978723, @gsGutterWidth:2.127659574, @gsWrapperClass:grid-fluid) {
+    @gsMultiplier : 1%;
+    
+    (~".@{gsWrapperClass}") {
+      .row {
+        .fluid-gs-core (@gsNumberOfColumns, @gsColumnWidth, @gsGutterWidth);
+        .cfx ();
+        
+        width: 100 * @gsMultiplier;
+      }
+    }
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition segment essentials
+
+  // ----------------------------------------------------- ~ seg-calculations
+  @sgsStepSize                  : 5;
+  @sgsNumberOfSteps             : 100;
+  @sgsColumnWidth               : @sgsStepSize;
+  @sgsColumnsWidth              : @sgsColumnWidth * @sgsNumberOfSteps;
+  @sgsWidth                     : @sgsColumnsWidth;
+  @sgsCorrection                : @ie7Correction;
+  
+  // ----------------------------------------------------- ~ seg-mixins
+  .sgs-width (@columnIndex:1) {
+    width: @sgsTotalWidth * ((@sgsColumnWidth * @columnIndex) / @sgsWidth);
+  }
+  .sgs-column () {
+    .gs-float ();
+    
+    *margin-right: 0 - @sgsCorrection;
+  }
+  
+  // ----------------------------------------------------- ~ recursive seg-columnX
+  .sgs-columnX (@index) when (@index > 0) {
+    (~".seg@{index}") {
+      .sgs-width (@index);
+    }
+    .sgs-columnX (@index - @sgsStepSize);
+  }
+  .sgs-columnX (0) {}
+
+
+
+
+// ----------------------------------------------------- ~ basecondition segment cores
+
+  // ----------------------------------------------------- ~ fixed segment system
+  .fixed-sgs-core (@sgsFixedWidth) {
+    @sgsTotalWidth : @sgsFixedWidth * 1px;
+    .gs-center ();
+    
+    width: @sgsTotalWidth;
+    
+    [class*="seg"] {
+      .sgs-column ();
+    }
+    .sgs-columnX (@sgsNumberOfSteps);
+  }
+  
+  // ----------------------------------------------------- ~ fluid segment system
+  .fluid-sgs-core () {
+    @sgsTotalWidth: 100%;
+    
+    [class*="seg"] {
+      .sgs-column ();
+    }
+    .sgs-columnX (@sgsNumberOfSteps);
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition segment generation
+
+  // ----------------------------------------------------- ~ fixed segment system
+  .get-fixed-sgs (@sgsFixedWidth:940, @sgsWrapperClass:row-fixed-sgs) {
+    (~".@{sgsWrapperClass}") {
+      .fixed-sgs-core (@sgsFixedWidth);
+      .cfx ();
+    }
+  }
+  
+  // ----------------------------------------------------- ~ fluid segment system
+  .get-fluid-sgs () {
+    .fluid-sgs-core ();
+    
+    .seg33 {
+      width: 33.3333333%
+    }
+  }
+
+
+

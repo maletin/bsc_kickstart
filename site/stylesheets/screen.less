@@ -1,0 +1,297 @@
+/*
+basecondition ~ screen.less
+Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
+Creative Commons Attribution 3.0 Unported License
+
+Version: 3.1.1
+
+~ basecondition import & grid generation
+~ basecondition css output
+~ basecondition default or author's custom styles
+~ basecondition custom elements
+~ basecondition demo css
+~ basecondition responsive output
+
+*/
+
+// ----------------------------------------------------- ~ basecondition import & grid generation
+
+  // ----------------------------------------------------- ~ less import files
+  @import "variables.less";
+  @import "utilities.less";
+  @import "mixins.less";
+  @import "grids.less";
+  
+  // ----------------------------------------------------- ~ grid generation
+  .grid-system () {    
+    .get-fixed-gs();
+    .get-fixed-sgs();
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition css output
+
+  // ----------------------------------------------------- ~ html5 base & grid output
+  .html-body ();
+  .h5b-defaults ();
+  .grid-system ();
+
+
+
+  
+// ----------------------------------------------------- ~ basecondition default or author's custom styles
+  
+  // ----------------------------------------------------- ~ html5 layout elements
+  header {
+  
+  }
+  article {
+  
+  }
+  section {
+    .unset-distances (); 
+  }
+  footer {
+  
+  }
+  
+  * {
+    .unset-outline ();
+    
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+      .unset-outline ();
+    }
+  }
+  
+  // ----------------------------------------------------- ~ headlines
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: ceil (@baseLineHeight*2.2);
+    text-rendering: optimizelegibility;
+    margin: ceil (@baseDistance/2) 0;
+    clear: both;
+  }
+  h4,
+  h5,
+  h6 {
+    line-height: @baseLineHeight;
+  }
+  h1 {
+    font-size: ceil (@baseFontSize*2.4);
+  }
+  h2 {
+    font-size: ceil (@baseFontSize*2.1);
+  }
+  h3 {
+    font-size: ceil (@baseFontSize*1.7);
+  }
+  h4 {
+    font-size: ceil (@baseFontSize*1.25);
+  }
+  h5 {
+    font-size: @baseFontSize;
+  }
+  h6 {
+    font-size: ceil (@baseFontSize*0.8);
+  }
+  * + h1,
+  * + h2,
+  * + h3,
+  pre + * {
+    margin-top: ceil (@baseDistance*1.8);
+  }
+  h1 + h2,
+  h2 + h3 {
+    margin-top: ceil (@baseDistance/2);
+  }
+  
+  // ----------------------------------------------------- ~ paragraph
+  p {
+    .link ();
+    
+    margin: ceil (@baseDistance/2) 0;
+    line-height: ceil (@baseLineHeight*1.2);
+    
+    &.lead {
+      font-size: ceil (@baseFontSize*1.4);
+      line-height: ceil (@baseLineHeight*1.3);
+    }
+  }
+  
+  // ----------------------------------------------------- ~ blockquote
+  blockquote {
+    font-size: ceil (@baseFontSize*1.4);
+    line-height: ceil (@baseLineHeight*1.3);
+  }
+  
+  // ----------------------------------------------------- ~ inline elements
+  b,
+  strong {
+    font-weight: bold;
+  }
+  em {
+    font-style: italic;
+  }
+  strike {
+    text-decoration: line-through;
+  }
+  span {
+    
+  }
+  pre,
+  code {
+    .border-radius (3px);
+    
+    border: 1px solid lightblue;
+    color: #518BAB;
+    font-family: @monoFontFamily;
+    padding: 3px;
+  }
+  code {
+  
+  }
+  
+  // ----------------------------------------------------- ~ address
+  address {
+  
+  }
+  
+  // ----------------------------------------------------- ~ lists
+  dl,
+  ol,
+  ul {
+  
+  }
+  ol,
+  ul {
+    li {
+      line-height: ceil (@baseLineHeight*1.2);
+    }
+  }
+  dl {
+    dd,
+    dl {
+      line-height: ceil (@baseLineHeight*1.2);
+    }
+    dd {
+    
+    }
+    dt {
+    
+    }
+  }
+  
+  // ----------------------------------------------------- ~ tables
+  tables {
+    tr {
+      th,
+      td {
+        line-height: ceil (@baseLineHeight*1.2);
+      }
+      th {
+      
+      }
+      td {
+      
+      }
+    }
+    thead {
+    
+    }
+    tfoot {
+
+    }
+    tbody {
+    
+    }
+  }
+  
+  // ----------------------------------------------------- ~ forms
+  form {
+    fieldset {
+    
+    }
+    legend {
+    
+    }
+    label {
+    
+    }
+    input {
+      &.text,
+      &[type="text"] {
+      
+      }
+      &.file,
+      &[type="file"] {
+      
+      }
+      &.password,
+      &[type="password"] {
+      
+      }
+      &.disabled,
+      &.[disabled="disabled"] {
+      
+      }
+      &.checkbox,
+      &[type="checkbox"] {
+      
+      }
+      &.radio,
+      &[type="radio"] {
+      
+      }
+      &.submit,
+      &[type="submit"] {
+      
+      }
+    }
+    select {
+    
+    }
+    textarea {
+    
+    }
+    button {
+      &.submit,
+      &[type="submit"] {
+      
+      }
+    }
+  }
+  
+  // ----------------------------------------------------- ~ images
+  .image,
+  img {
+  
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition custom elements
+
+  // ----------------------------------------------------- ~ buttons
+  
+  // ----------------------------------------------------- ~ thumbnails
+  
+  // ----------------------------------------------------- ~ boxes
+
+
+
+
+// ----------------------------------------------------- ~ basecondition responsive output
+
+  // ----------------------------------------------------- ~ import responsive file
+  @import "responsives.less";
+

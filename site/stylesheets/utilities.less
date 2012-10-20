@@ -1,0 +1,351 @@
+/*
+basecondition ~ utilities.less
+Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
+Creative Commons Attribution 3.0 Unported License
+
+Version: 3.1.1
+
+~ basecondition html,body
+~ basecondition essentials
+~ IE fixes
+~ HTML5 Boilerplate
+
+*/
+
+// ----------------------------------------------------- ~ basecondition html,body
+  
+  // ----------------------------------------------------- ~ body html
+  .html-body () {
+    html,
+    body {
+      .unset-distances ();
+      .square (100%);
+    }
+    body {
+      background: @baseBodyBackground;
+      font-family: @baseFontFamily;
+      font-size: @baseFontSize;
+      line-height: @baseLineHeight;
+      color: @baseFontColor;
+    }
+  }
+
+
+
+
+// ----------------------------------------------------- ~ basecondition essentials
+
+  // ----------------------------------------------------- ~ micro clearfix hack
+  .cfx () {
+    *zoom: 1;
+    
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ grid system unsetting
+  .gs-unset () {
+    [class*="grid"] {
+      width: auto;
+      
+      .row {
+        margin-left: 0;
+        width: auto;
+        
+        [class*="col"] {
+          display: block;
+          float: none;
+          width: auto;
+          margin-left: 0;
+        }
+      }
+    }
+    [class*="row"] {
+      width: auto;
+    }
+    [class*="row"] [class*="seg"],
+    [class*="seg"] {
+      display: block;
+      float: none;
+      width: auto;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ grid system float
+  .gs-float () {
+    display: inline;
+    float: left;
+  }
+  
+  // ----------------------------------------------------- ~ grid system center
+  .gs-center () {
+    .center ();
+  }
+  
+  // ----------------------------------------------------- ~ center
+  .center () {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  // ----------------------------------------------------- ~ text  Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+  .hide-text () {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  // ----------------------------------------------------- ~ hide & show
+  .hide () {
+    display: none !important;
+    visibility: hidden;
+  }
+  .show () {
+    display: block;
+    visibility: visible;
+  }
+  
+  // ----------------------------------------------------- ~ visibility
+  .invisibility () {
+    visibility: hidden;
+  }
+  .visibility () {
+    visibility: visible;
+  }
+  
+  // ----------------------------------------------------- ~ unset distances
+  .unset-distances () {
+    margin: 0;
+    padding: 0;
+  }
+  .null-distances () {
+    .unset-distances ();
+  }
+  
+  // ----------------------------------------------------- ~ unset list
+  .unset-list () {
+    ul {
+      .unset-distances ();
+      
+      list-style: none;
+      
+      li {
+        .unset-distances ();
+      }
+    }
+  }
+  
+  // ----------------------------------------------------- ~ unset outline
+  .unset-outline () {
+    outline: none;
+  }
+  
+  // ----------------------------------------------------- ~ unset overflow
+  .unset-overflow () {
+    overflow: hidden;
+  }
+  
+  // ----------------------------------------------------- ~ pointer
+  .pointer () {
+    cursor: pointer;
+  }
+
+
+
+
+// ----------------------------------------------------- ~ IE fixes
+
+  // ----------------------------------------------------- ~ inlineing
+  .ie7-inline-element () {
+    *display: inline; /* IE7 inline-block hack */
+    *zoom: 1;
+  }
+  
+  // ----------------------------------------------------- ~ float-left correction
+  .ie7-correction-left () {
+    *margin-left: @ie7CorrectionDistance;
+    
+    &:first-child {
+      *margin-left: 0;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ float-right correction
+  .ie7-correction-right () {
+    *margin-right: @ie7CorrectionDistance;
+    
+    &:last-child {
+      *margin-right: 0;
+    }
+  }
+
+
+
+
+// ----------------------------------------------------- ~ HTML5 Boilerplate 4.0.0
+
+  // ----------------------------------------------------- ~ h5b defaults 
+  .h5b-defaults () {
+    .h5b-base-style ();
+    .h5b-chromeframe ();
+    .h5b-helper ();
+  }
+  
+  // ----------------------------------------------------- ~ base styles, basecondition modified version
+  .h5b-base-style () {
+    /* Copyright (c) HTML5 Boilerplate */
+    html,
+    button,
+    input,
+    select,
+    textarea {
+      color: lighten (@black, 15%);
+    }
+    ::-moz-selection {
+      background: @blue;
+      text-shadow: none;
+    }
+    ::selection {
+      background: @blue;
+      text-shadow: none;
+    }
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid lighten (@grayLight, 30%);
+      margin: 1em 0;
+      padding: 0;
+    }
+    img {
+      vertical-align: middle;
+    }
+    fieldset {
+      .unset-distances ();
+      
+      border: 0;
+    }
+    textarea {
+      resize: vertical;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ chrome frame prompt
+  .h5b-chromeframe () {
+    /* Copyright (c) HTML5 Boilerplate */
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+  }
+  
+  // ----------------------------------------------------- ~ helper classes
+  .h5b-helper () {
+    /* Copyright (c) HTML5 Boilerplate */
+    .ir {
+      background-color: transparent;
+      border: 0;
+      overflow: hidden;
+      *text-indent: -9999px;
+    }
+    .ir:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+    }
+    .hidden {
+      .hide ();
+    }
+    .visuallyhidden {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    .visuallyhidden.focusable:active,
+    .visuallyhidden.focusable:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+    .invisible {
+      .invisibility ();
+    }
+    .clearfix {
+      .cfx ();
+    }
+  }
+  
+  // ----------------------------------------------------- ~ print styles
+  .h5b-print () {
+    /* Copyright (c) HTML5 Boilerplate */
+    @media print {
+      * {
+        background: transparent !important;
+        color: @black !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+      a,
+      a:visited {
+        text-decoration: underline;
+      }
+      a[href]:after {
+        content: " (" attr(href) ")";
+      }
+      abbr[title]:after {
+        content: " (" attr(title) ")";
+      }
+      .ir a:after,
+      a[href^="javascript:"]:after,
+      a[href^="#"]:after {
+        content: "";
+      }
+      pre,
+      blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+      }
+      thead {
+        display: table-header-group; /* h5bp.com/t */
+      }
+      tr,
+      img {
+        page-break-inside: avoid;
+      }
+      img {
+        max-width: 100% !important;
+      }
+      @page {
+        margin: 0.5cm;
+      }
+      p,
+      h2,
+      h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2,
+      h3 {
+        page-break-after: avoid;
+      }
+    }
+  }

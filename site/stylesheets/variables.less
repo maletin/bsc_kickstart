@@ -1,0 +1,91 @@
+/*
+basecondition ~ variables.less
+Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
+Creative Commons Attribution 3.0 Unported License
+
+Version: 3.1.1
+
+~ basecondition colors
+~ basecondition font familys
+~ basecondition base sets
+~ basecondition distances
+
+*/
+
+// ----------------------------------------------------- ~ basecondition colors
+
+  // ----------------------------------------------------- ~ greys
+  @black                        : #000;
+  @grayDarker                   : #222;
+  @grayDark                     : #333;
+  @gray                         : #555;
+  @grayLight                    : #999;
+  @grayLighter                  : #eee;
+  @white                        : #fff;
+  
+  // ----------------------------------------------------- ~ colors
+  @blue                         : #049cdb;
+  @cyan                         : #08cccc;
+  @green                        : #46a546;
+  @red                          : #9d261d;
+  @yellow                       : #ffc40d;
+  @orange                       : #f89406;
+  @pink                         : #c3325f;
+  @purple                       : #7a43b6;
+
+
+
+
+// ----------------------------------------------------- ~ basecondition font familys
+
+  // ----------------------------------------------------- ~ sans
+  @sansFontFamily               : "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  
+  // ----------------------------------------------------- ~ serif
+  @serifFontFamily              : Georgia, "Times New Roman", Times, serif;
+  
+  // ----------------------------------------------------- ~ mono
+  @monoFontFamily               : Monaco, Menlo, Consolas, "Courier New", monospace;
+
+
+
+
+// ----------------------------------------------------- ~ basecondition base sets
+
+  // ----------------------------------------------------- ~ font
+  @baseFontFamily               : @sansFontFamily;
+  @altFontFamily                : @serifFontFamily;
+  @baseFontWeight               : normal;
+  @baseFontColor                : lighten (@black, 15%);
+  @baseFontSize                 : 14px;
+  @baseLineHeight               : ceil (@baseFontSize * 1.38);
+  
+  // ----------------------------------------------------- ~ link
+  @baseLinkColor                : @cyan;
+  @baseLinkHoverColor           : darken (@baseLinkColor, 15%);
+  @baseLinkDecoration           : none;
+  
+  // ----------------------------------------------------- ~ body
+  @baseBodyBackground           : @white;
+  
+  // ----------------------------------------------------- ~ distance
+  @baseDistance                 : 20px;
+  
+  // ----------------------------------------------------- ~ paths
+  @baseImagePath                : "../image/";
+  @baseScriptPath               : "../javascript/";
+
+
+
+
+// ----------------------------------------------------- ~ basecondition distances
+
+  // ----------------------------------------------------- ~ defauts
+  @minDistance                  : @baseDistance / 6;
+  @maxDistance                  : @baseDistance * 2;
+  @ie7Correction                : 0.05;
+  @ie7CorrectionDistance        : -@ie7Correction * 1em;
+  
+  // ----------------------------------------------------- ~ table
+  @tableDistance                : @minDistance;
+

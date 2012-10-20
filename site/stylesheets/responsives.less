@@ -1,0 +1,57 @@
+/*
+basecondition ~ responsives.less
+Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
+Creative Commons Attribution 3.0 Unported License
+
+Version: 3.1.1
+
+~ basecondition media queries & author's custom print styles
+
+*/
+
+// ----------------------------------------------------- ~ basecondition media queries & author's custom print styles
+  
+  // ----------------------------------------------------- ~ landscape phones and down
+  @media (max-width: 480px) {
+    .gs-unset ();
+  }
+  
+  // ----------------------------------------------------- ~ landscape phone to portrait tablet
+  @media (max-width: 767px) {
+    .gs-unset ();
+  }
+  
+  // ----------------------------------------------------- ~ portrait tablet to landscape and desktop
+  @media (min-width: 768px) and (max-width: 979px) {
+    // ----------------------------------------------------- ~ grid systems 768px - 979px
+    .gs-768-979 () {
+      .get-fixed-gs(12,42,20);
+      .get-fixed-gs(16,33,13,grid16x);
+      .get-fluid-gs(12,5.801104972,2.762430939);
+      .get-fixed-sgs(724px);
+      
+      .grid-fluid {
+        width: 724px;
+      }
+    }
+    .gs-768-979 ();
+  }
+  
+  // ----------------------------------------------------- ~ large desktop
+  @media (min-width: 1200px) {
+    // ----------------------------------------------------- ~ grid systems 1200px
+    .gs-1200 () {
+      .get-fixed-gs(12,70,30);
+      .get-fixed-gs(16,45,30,grid16x);
+      .get-fluid-gs(12,5.982905983,2.564102564);
+      .get-fixed-sgs(1170px);
+      
+      .grid-fluid {
+        width: 1170px;
+      }
+    }
+    .gs-1200 ();
+  }
+
+
+
