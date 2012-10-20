@@ -8,7 +8,7 @@ h3. Sonstige BSC-Pakete
 
 Es wird Künftig 3 Pakete des BaseCondition Frameworks zum Download geben. 
 
-* Kickstart Paket mit BC Komponenten
+* "Kickstart Paket mit BC Komponenten":https://github.com/downloads/joachimdoerr/bsc_kickstart/bsc_kickstart.zip
 * Komplett Paket mit BC Komponenten, Layout und Doku
 * Als Redaxo Addon mit Komplett - und Kickstart-Paket
 
