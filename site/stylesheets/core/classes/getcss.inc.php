@@ -4,13 +4,9 @@ basecondition ~ getcss.inc.php
 Copyright (C) 2011 ~ Joachim Doerr, hello@basecondition.com
 Creative Commons Attribution 3.0 Unported License
 
-Version: 3.1.1
+Version: 3.1.2
 */
 
-// load lessc class
-require_once( 'lessc.inc.php' );
-
-// get_css class
 class get_css
 {
   /*
@@ -215,6 +211,9 @@ Creative Commons Attribution 3.0 Unported License
       
       if($this->boolCacheFileGenerate === true)
       {
+        // include lessc
+        require_once( 'lessc.inc.php' );
+        
         // init less object
         $objLess = new lessc($this->strLessFolder . $this->strLessFileName);
         
