@@ -1,4 +1,4 @@
-h2. BaseCondition Framework 3.1.1 - Kickstart Paket
+h2. BaseCondition Framework 3.1.2 - Kickstart Paket
 
 h3. BSC-Kickstart-Paket
 
