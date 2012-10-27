@@ -84,14 +84,14 @@ Version: 3.1.2
     text-shadow: @val;
   }
   .text-shadow (@color: #000) {
-	  .multi-text-shadow (0 1px 0 @color);
-	}
+    .multi-text-shadow (0 1px 0 @color);
+  }
   
   // ----------------------------------------------------- ~ opacity
   .opacity (@alpha: 0.5) {
-		@msOpacity: @alpha * 100;
-		
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
+    @msOpacity: @alpha * 100;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
     filter: alpha(opacity=@msOpacity);
     -moz-opacity: @alpha;
     -khtml-opacity: @alpha;
@@ -108,20 +108,20 @@ Version: 3.1.2
   .border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
     @val: @topleft @topright @bottomright @bottomleft;
     
-  	-webkit-border-radius: @val;
-  	-moz-border-radius: @val;
-  	border-radius: @val;
+    -webkit-border-radius: @val;
+    -moz-border-radius: @val;
+    border-radius: @val;
   } /* .border-radius-custom(20px, 20px, 0px, 0px); */
   
   // ----------------------------------------------------- ~ transition
   .transition (@prop: all, @time: 1s, @ease: linear) { /* ease-in-out */
     @val: @prop @time @ease;
     
-  	-webkit-transition: @val;
-  	-moz-transition: @val;
-  	-o-transition: @val;
-  	-ms-transition: @val;
-  	transition: @val;
+    -webkit-transition: @val;
+    -moz-transition: @val;
+    -o-transition: @val;
+    -ms-transition: @val;
+    transition: @val;
   } /* .transition(all, 0.5s, ease-in); */
   .transition-delay(@delay) {
     -webkit-transition-delay: @delay;
@@ -135,25 +135,25 @@ Version: 3.1.2
     @rotation: @rotate + 0deg;
     @val: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
     
-  	-webkit-transform: @val;
-  	-moz-transform: @val;
-  	-o-transform: @val;
-  	-ms-transform: @val;
-  	transform: @val;
+    -webkit-transform: @val;
+    -moz-transform: @val;
+    -o-transform: @val;
+    -ms-transform: @val;
+    transform: @val;
   } /* .transform(5deg, 0.5, 1deg, 0px); */
   .skew (@x:35, @y:0) {
-  	-webkit-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
-  	-moz-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
-  	-o-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
-  	-ms-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
-  	transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
+    -webkit-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
+    -moz-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
+    -o-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
+    -ms-transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
+    transform: skew(formatstring("{0}deg", @x), formatstring("{0}deg", @y));
   }
   .scale (@scale: 1) {
-  	-webkit-transform: scale(@scale);
-  	-moz-transform: scale(@scale);
-  	-o-transform: scale(@scale);
-  	-ms-transform: scale(@scale);
-  	transform: scale(@scale);
+    -webkit-transform: scale(@scale);
+    -moz-transform: scale(@scale);
+    -o-transform: scale(@scale);
+    -ms-transform: scale(@scale);
+    transform: scale(@scale);
   }
   .rotate (@rotate: 0) {
     @rotation: @rotate + 0deg;
@@ -167,11 +167,11 @@ Version: 3.1.2
   .translate(@x: 10px, @y: 10px) {
     @val: translate(@x, @y);
     
-  	-webkit-transform: @val;
-  	-moz-transform: @val;
-  	-o-transform: @val;
-  	-ms-transform: @val;
-  	transform: @val;
+    -webkit-transform: @val;
+    -moz-transform: @val;
+    -o-transform: @val;
+    -ms-transform: @val;
+    transform: @val;
   }
   .translate3d(@x, @y, @z) {
     -webkit-transform: translate3d(@x, @y, @z);
@@ -184,28 +184,28 @@ Version: 3.1.2
   .gradient (@origin: left, @start: #ffffff, @stop: #000000) {
     @val: @origin, @start, @stop;
     
-  	background-color: @start;
-  	background-image: -webkit-linear-gradient(@val);
-  	background-image: -moz-linear-gradient(@val);
-  	background-image: -o-linear-gradient(@val);
-  	background-image: -ms-linear-gradient(@val);
-  	background-image: linear-gradient(@val);
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@val);
+    background-image: -moz-linear-gradient(@val);
+    background-image: -o-linear-gradient(@val);
+    background-image: -ms-linear-gradient(@val);
+    background-image: linear-gradient(@val);
   }
   /* .gradient(left, #663333, #333333); */
   .quick-gradient (@origin: left, @alpha: 0.2) {
     @val: @origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha);
     
-  	background-image: -webkit-linear-gradient(@val);
-  	background-image: -moz-linear-gradient(@val);
-  	background-image: -o-linear-gradient(@val);
-  	background-image: -ms-linear-gradient(@val);
-  	background-image: linear-gradient(@val);
+    background-image: -webkit-linear-gradient(@val);
+    background-image: -moz-linear-gradient(@val);
+    background-image: -o-linear-gradient(@val);
+    background-image: -ms-linear-gradient(@val);
+    background-image: linear-gradient(@val);
   } /*
     background-color: BADA55;
-  	.quick-gradient(top, 0.2);
+    .quick-gradient(top, 0.2);
   */
 
   // ----------------------------------------------------- ~ reflection
   .reflect (@length: 50%, @alpha: 0.2){
-  	-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@alpha)));
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@alpha)));
   } /* .reflect(20%, 0.2); */
